@@ -2,13 +2,26 @@
 # FeelGoodNow
 
 FeelGoodNow is a comprehensive wellness application designed specifically for women dealing with PCOS (Polycystic Ovary Syndrome). It provides tools and resources to help users track their health, access exercise videos, and use a chatbot for personalized support. The main functionalities of the application include authentication, health tracking, exercise recommendations, and a chatbot tailored for PCOS-related concerns.
+##Purpose and Problem Solved
+PCOS (Polycystic Ovary Syndrome) is a common health problem affecting many women, which can lead to various challenges including irregular menstrual cycles, weight gain, and increased risk of diabetes. Managing PCOS often requires a combination of lifestyle changes, including diet and exercise, as well as regular monitoring of health parameters. FeelGoodNow is designed to provide an all-in-one solution for women with PCOS to:
+
+Track their health: Monitor various health metrics and compare them to ideal values to better understand their condition and progress.
+Access exercise resources: Find recommended exercise videos specifically curated to help manage PCOS symptoms and improve overall health.
+Receive personalized support: Utilize a chatbot designed to offer advice, answer questions, and provide support tailored to the needs of women with PCOS.
 
 ## Features
+##Landing Page
+The landing page of FeelGoodNow welcomes users with a clean and engaging interface that emphasizes the importance of making fitness a lifestyle. It encourages users to commit to regular exercise, embrace a healthier lifestyle, and embark on a journey towards a stronger and happier self
+![image](https://github.com/Avadhesh2/FeelGoodNow/assets/113242112/bf774681-5705-4681-a868-d1a79f91d81c)
 
 ### Authentication
 
 - **Sign Up**: New users can create an account to access all features of the application.
+- ![image](https://github.com/Avadhesh2/FeelGoodNow/assets/113242112/dd63fd4c-0772-4756-aca0-1552220b739a)
+
 - **Login**: Existing users can log in to their accounts to continue using the application.
+- ![image](https://github.com/Avadhesh2/FeelGoodNow/assets/113242112/9305293c-7b0c-4577-bc2a-9d04a85c12dd)
+
 - **Logout**: Users can securely log out of their accounts when they are done using the application.
 
 ### Categories
