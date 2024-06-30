@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot Interface</title>
+  </head>
+  <body>
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="user_input" placeholder="Enter your message" />
+      <button type="submit">Send</button>
+    </form>
+
+    <div>
+      {% if bot_response %}
+      <p>{{ bot_response }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

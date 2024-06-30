@@ -1,0 +1,309 @@
+{% load static %} {% comment %} {% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("{% static "search/youtube.jpg" %}");
+
+        background-size: cover;
+        background-position: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .video-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: calc(
+          33.33% - 20px
+        ); /* Adjust based on container width and gap */
+        box-sizing: border-box;
+        background-color: white; /* Background color for the video cards */
+      }
+
+      .video-card img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search YouTube Videos</h1>
+
+      <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Search YouTube Videos" />
+        <button type="submit" name="submit" value="search">Search</button>
+        <button type="submit" name="submit" value="lucky">
+          I'm Feeling Lucky
+        </button>
+      </form>
+
+      <h2>Search Results</h2>
+
+      <div class="video-container">
+        {% for video in videos %}
+        <div class="video-card">
+          <a href="{{ video.url }}" target="_blank"
+            ><img src="{{ video.thumbnail }}"
+          /></a>
+          <p>Title: {{ video.title }}</p>
+          <p>Duration: {{ video.duration }} minutes</p>
+
+          {% if request.user.is_authenticated %} {% if video in
+          request.user.userprofile.favorites.all %}
+          <form method="POST" action="{% url 'remove_favorite' %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Remove from Favorites</button>
+          </form>
+          {% else %}
+          <form method="POST" action="{% url 'add_to_favorites' video.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Add to Favorites</button>
+          </form>
+          {% endif %} {% endif %}
+        </div>
+        {% endfor %}
+
+        <h2>Recommended Videos</h2>
+
+        {% for video in recommended_videos %}
+        <div class="video-card">
+          <a href="{{ video.url }}" target="_blank"
+            ><img src="{{ video.thumbnail }}"
+          /></a>
+          <p>Title: {{ video.title }}</p>
+          <p>Duration: {{ video.duration }} minutes</p>
+
+          {% if request.user.is_authenticated %} {% if video in
+          request.user.userprofile.favorites.all %}
+          <form method="POST" action="{% url 'remove_favorite' %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Remove from Favorites</button>
+          </form>
+          {% else %}
+          <form method="POST" action="{% url 'add_to_favorites' video.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Add to Favorites</button>
+          </form>
+          {% endif %} {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
+{% endcomment %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("{% static "images/lamp_in_sky.jpg" %}");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        color: white; /* Set text color to white */
+      }
+
+      .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .video-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: calc(
+          33.33% - 20px
+        ); /* Adjust based on container width and gap */
+        box-sizing: border-box;
+        background-color: white; /* Background color for the video cards */
+      }
+
+      .video-card img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Style for the search input */
+      .search-box {
+        width: 100%;
+        padding: 10px;
+        border: 1px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        color: Black; /* Text color */
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.5
+        ); /* Semi-transparent white background */
+        font-size: 16px;
+        text-align: center; /* Center align text */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+      }
+
+      /* Style for the search input on focus */
+      .search-box:focus {
+        background-color: rgba(
+          151,
+          240,
+          215,
+          0.8
+        ); /* Lighter semi-transparent white background */
+      }
+      /* Style for the search button */
+      .search-button {
+        width: 20%; /* Take up full width */
+        padding: 15px; /* Increase padding for better visibility */
+        border: none;
+        border-radius: 5px;
+        background-color: #9bff; /* Blue background color */
+        color: white; /* White text color */
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Smooth transition for background color */
+      }
+
+      /* Style for the search button on hover */
+      .search-button:hover {
+        background-color: #0056b3; /* Darker blue background color */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search Your favourite Workout here</h1>
+
+      <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <!-- Add class "search-box" to the input element -->
+
+        <input
+          type="text"
+          name="search"
+          placeholder="Search YouTube Videos"
+          class="search-box"
+        />
+        <!-- Add class "search-button" to the button element -->
+        <button
+          type="submit"
+          name="submit"
+          value="search"
+          class="search-button"
+        >
+          Search
+        </button>
+        <button type="button" class="btn btn-primary">  <a href="{% url 'bucket' %}" class="btn btn-primary"> Back</a></button>
+       
+        {% comment %}
+        <button type="submit" name="submit" value="lucky">
+          I'm Feeling Lucky
+        </button>
+        {% endcomment %}
+      </form>
+
+      <div class="video-container">
+        {% for video in videos %}
+        <div class="video-card">
+          <a href="{{ video.url }}" target="_blank"
+            ><img src="{{ video.thumbnail }}"
+          /></a>
+          <p>{{ video.title }}</p>
+          <p>Duration: {{ video.duration }} minutes</p>
+
+          {% if request.user.is_authenticated %} {% if video in
+          request.user.userprofile.favorites.all %}
+          <form method="POST" action="{% url 'remove_favorite' %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Remove from Favorites</button>
+          </form>
+          {% else %}
+          <form method="POST" action="{% url 'add_to_favorites' video.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Add to Favorites</button>
+          </form>
+          {% endif %}
+        </div>
+        {% endfor %}
+
+        <h2>Recommended Videos</h2>
+
+        {% for video in recommended_videos %}
+        <div class="video-card">
+          <a href="{{ video.url }}" target="_blank"
+            ><img src="{{ video.thumbnail }}"
+          /></a>
+          <p>Title: {{ video.title }}</p>
+          <p>Duration: {{ video.duration }} minutes</p>
+
+          {% if request.user.is_authenticated %} {% if video in
+          request.user.userprofile.favorites.all %}
+          <form method="POST" action="{% url 'remove_favorite' %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Remove from Favorites</button>
+          </form>
+          {% else %}
+          <form method="POST" action="{% url 'add_to_favorites' video.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{ video.id }}" />
+            <button type="submit">Add to Favorites</button>
+          </form>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

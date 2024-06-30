@@ -1,0 +1,404 @@
+ {% load static %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Power Fitness | Exercise Website</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/logo.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- Navigation Bar -->
+      <nav class="nav-bar">
+        <div class="brand">
+          <img
+            class="brand-logo"
+            src="{% static 'images/logo.png' %}"
+            alt="brand logo"
+          />
+          <h1>Feel <span>GoodNow</span></h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">HOME</a></li>
+          <li><a href="{% url 'signup' %}">SIGNUP</a></li>
+          <li><a href="{% url 'login' %}">LOGIN</a></li>
+          <li><a href="#">ABOUT</a></li>
+
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Top Intro Section -->
+      <section class="top-intro-section">
+        <div>
+          <h2 class="home-text">MAKE</h2>
+          <h2 class="fitness-text">FITNESS</h2>
+          <h2 class="home-text">A LIFESTYLE</h2>
+
+          <p class="intro-text">
+            "Commit to a regular exercise routine, unleash your inner strength,
+            and embrace a healthier lifestyle. Let fitness fuel your journey
+            towards a stronger, happier you!"
+          </p>
+          <br />
+        </div>
+        <div>
+          <img src="{% static 'images/gym.png' %}" alt="gym image" />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>  {% endcomment %}
+
+
+
+
+ <!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>FeelGoodNow</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href=   "{% static 'css/bootstrap.css' %}"  />
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href=  "{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href= "{% static 'css/responsive.css' %}"   rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="">
+            <img src="{% static 'images/logo3.png' %}" alt="" />
+            <span>
+              FeelGoodNow
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item">
+                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="about.html"> About</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">SIGNUP </a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}"> Logout</a>
+            </li>
+             
+            </ul>
+            <div class="user_option">
+              <a href="{% url 'login' %}">
+                <span>
+                  Login
+                </span>
+              </a>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+          </div>
+          <div>
+            <div class="custom_menu-btn ">
+              <button>
+                <span class=" s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- experience section -->
+
+  <section class="experience_section layout_padding-top layout_padding2-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="img-box">
+            <img src=  "{% static 'images/experience-img.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Make Fitness Your LifeStyle
+              </h2>
+            </div>
+            <p>
+              "Commit to a regular exercise routine, unleash your inner strength,
+            and embrace a healthier lifestyle. Let fitness fuel your journey
+            towards a stronger, happier you!"
+            </p>
+            <div class="btn-box">
+              <a href="" class="btn-1">
+                Read More
+              </a>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end experience section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-9 mx-auto">
+          <div class="img-box">
+            <img src=  "{% static 'images/about-img.jpg' %}"  alt="">
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <h2>
+          About FeelGoodNow Company
+        </h2>
+        <p>
+          "Welcome to Feel Good Now - Your Path to Happiness and Health! Dive into our world of wellness wonders - from invigorating exercise videos to personalized health tracking tools. Discover a community dedicated to empowering you towards a happier, healthier life. Let's embark on this journey together. Feel Good Now - Where Wellness Meets Happiness!"
+        </p>
+        <a href="">
+          Read More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- info section -->
+
+  <section class="info_section ">
+    <div class="info_container layout_padding-top">
+      <div class="container">
+        <div class="info_top">
+          <div class="info_logo">
+            <img src= "{% static 'images/logo3.png' %}" alt="" />
+            <span>
+              FeelGoodNow
+            </span>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <img src=  "{% static 'images/fb.png' %}"  alt="">
+            </a>
+           
+            <a href="#">
+              <img src="{% static 'images/linkedin.png' %}"  alt="">
+            </a>
+            <a href="#">
+              <img src=   "{% static 'images/instagram.png' %}" alt="">
+            </a>
+            
+          </div>
+        </div>
+
+        <div class="info_main">
+          <div class="row">
+            <div class="col-md-3 col-lg-2">
+              <div class="info_link-box">
+                <h5>
+                  Useful Link
+                </h5>
+                <ul>
+                  <li class=" active">
+                    <a class="" href="#">Home <span class="sr-only">(current)</span></a>
+
+                  </li>
+                  <li class="">
+                    <a class="" href="#">About </a>
+                  </li>
+                  <li class="">
+                    <a class="" href="#">Work </a>
+                  </li>
+                  <li class="">
+                    <a class="" href="category.html">Category </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 ">
+              <h5>
+                Offices
+              </h5>
+              <p>
+                Destination: South Africa
+Amazon Jungle Road 505
+Sher Ghar
+              </p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 offset-lg-1">
+              <h5>
+                Information
+              </h5>
+              <p>
+                "Feel Good Now is your go-to destination for holistic wellness. From personalized health tracking to expert-led exercise videos . Join our community and start feeling good today!"
+              </p>
+            </div>
+
+            <div class="col-md-3  offset-lg-1">
+              <div class="info_form ">
+                <h5>
+                  Newsletter
+                </h5>
+                <form action="">
+                  <input type="email" placeholder="Email">
+                  <button>
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9 col-md-10 mx-auto">
+            <div class="info_contact layout_padding2">
+              <div class="row">
+                <div class="col-md-3">
+                  <a href="#" class="link-box">
+                    <div class="img-box">
+                      <img src= "{% static 'images/location.png' %}"      alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>
+                        Location
+                      </h6>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="#" class="link-box">
+                    <div class="img-box">
+                      <img src= "{% static 'images/mail.png' %}" 
+                       alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>
+                        demo@gmail.com
+                      </h6>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-5">
+                  <a href="#" class="link-box">
+                    <div class="img-box">
+                      <img src=  "{% static 'images/call.png' %}" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>
+                        Call +01 1234567890
+                      </h6>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section ">
+    <div class="container">
+      <p>
+        &copy; <span id="displayDate"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- end  footer section -->
+
+
+  <script src= "{% static 'js/jquery-3.4.1.min.js' %}" ></script>
+  <script src= "{% static 'js/bootstrap.js' %}" ></script>
+  <script src= "{% static 'js/custom.js' %}" ></script>
+
+
+</body>
+</body>
+
+</html>
+
+

@@ -1,0 +1,120 @@
+/* Body Section */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background-image: url("{% static 'image/background.png' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Navbar */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin: 0px 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    width: 80px;
+}
+
+.brand h1 {
+    font-size: 40px;
+    color: #01667a;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.brand h1 span {
+    color: crimson;
+}
+
+a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a:hover {
+    color: #008e30;
+    text-shadow: 0px 0px 20px #008e30;
+}
+
+/* Top Intro Section */
+
+.top-intro-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    color: white;
+    padding: 0 100px;
+}
+
+.home-text {
+    font-size: 55px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 5px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.fitness-text {
+    color: crimson;
+    font-size: 100px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 5px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.intro-text {
+    padding: 0 200px 0 0;
+    text-align: justify;
+}
+
+.learn-more-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: white;
+    background-color: orangered;
+    border-radius: 5px;
+}
+
+
+
+.top-intro-section img {
+    width: 100%;
+}
+
+/* Mobile Responsive */
+@media only screen and (max-width: 600px) {
+    .top-intro-section {
+        display: block;
+    }
+
+    .nav-bar {
+        display: block;
+    }
+
+    .intro-text {
+        padding: 0;
+    }
+
+    .top-intro-section img {
+        margin-top: 50px;
+    }
+}
